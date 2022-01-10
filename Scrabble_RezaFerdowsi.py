@@ -30,6 +30,8 @@ for player in list(player_to_words):
     player_points += score_word(word)
   player_to_points[player]=player_points
 print(player_to_points)
+
+"""Lets make a play function"""
 def play_word(player_to_words):
   player_to_points={}
   for player in list(player_to_words):
@@ -39,7 +41,7 @@ def play_word(player_to_words):
       player_points += score_word(word)
     player_to_points[player]=player_points
   return player_to_points
-
+"""Lets make a function to determine the winner"""
 def winner(dic):
   highscore=0
   for player in dic.keys():
@@ -49,7 +51,7 @@ def winner(dic):
       winner=player
   return winner,highscore
   
-"Lets test the game with inputs"
+"Lets test the game with inputs, determining the winner"
 dic={"Reza":["hosna","mahvash","hi"],"Ferdowsi":["Top score","nothing"," "]}
 scores=play_word(dic)
 print(scores)
