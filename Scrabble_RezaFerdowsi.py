@@ -2,7 +2,8 @@
 """Scrabble
 In this project, you will process some data from a group of friends playing scrabble. You will use dictionaries to organize players, words, and points.
 
-There are many ways you can extend this project on your own if you finish and want to get more practice!"""
+There are many ways you can extend this project on your own if you finish and want to get more practice!
+https://en.wikipedia.org/wiki/Scrabble"""
 
 
 letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
