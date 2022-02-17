@@ -119,3 +119,19 @@ def every_other_letter(word):
   for i in range(0, len(word), 2):
     every_other += word[i]
   return every_other
+"""Write a function named reverse_string that has a string named word as a parameter. The function should return word in reverse."""
+
+Hint
+# Write your reverse_string function here:
+def reverse_string(word):
+  string = ""
+  for i in range(len(word)):
+    string += word[-(i+1)]
+  return string  
+# Uncomment these function calls to test your  function:
+print(reverse_string("Codecademy"))
+# should print ymedacedoC
+print(reverse_string("Hello world!"))
+# should print !dlrow olleH
+print(reverse_string(""))
+# should print
