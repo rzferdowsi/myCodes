@@ -54,9 +54,18 @@ def substring_between_letters(word, start,end):
     return word[s+1:e]
   else:
     return word
+def substring_between_letters(word, start, end):
+  start_ind = word.find(start)
+  # print(start_ind)
+  end_ind = word.find(end)
+  # print(end_ind)
+  if start_ind > -1 and end_ind > -1:
+    return(word[start_ind+1:end_ind])
+  return word
 
 # Uncomment these function calls to test your function:
 print(substring_between_letters("apple", "p", "e"))
 # should print "pl"
 print(substring_between_letters("apple", "l", "e"))
 # should print "apple"
+print("__________")
