@@ -119,9 +119,11 @@ def every_other_letter(word):
   for i in range(0, len(word), 2):
     every_other += word[i]
   return every_other
+
+
 """Write a function named reverse_string that has a string named word as a parameter. The function should return word in reverse."""
 
-Hint
+
 # Write your reverse_string function here:
 def reverse_string(word):
   string = ""
@@ -135,3 +137,18 @@ print(reverse_string("Hello world!"))
 # should print !dlrow olleH
 print(reverse_string(""))
 # should print
+
+"""Write a function called make_spoonerism that takes two strings as parameters named word1 and word2. Finding the first syllable of a word is a difficult task, so for our function, we’re going to switch the first letters of each word. Return the two new words as a single string separated by a space."""
+# Write your make_spoonerism function here:
+def make_spoonerism(word1, word2):
+  nw1 = word2[0]+word1[1:]
+  nw2 = word1[0]+word2[1:]
+  return f"{nw1} {nw2}"
+# Uncomment these function calls to test your function:
+print(make_spoonerism("Codecademy", "Learn"))
+# should print Lodecademy Cearn
+print(make_spoonerism("Hello", "world!"))
+# should print wello Horld!
+print(make_spoonerism("a", "b"))
+# should print b a
+
