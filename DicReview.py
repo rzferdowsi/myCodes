@@ -40,3 +40,18 @@ print(add_ten({1:5, 2:2, 3:3}))
 # should print {1:15, 2:12, 3:13}
 print(add_ten({10:1, 100:2, 1000:3}))
 # should print {10:11, 100:12, 1000:13}
+
+"""Create a function named values_that_are_keys that takes a dictionary named my_dictionary as a parameter. This function should return a list of all values in the dictionary that are also keys."""
+
+# Write your values_that_are_keys function here:
+def values_that_are_keys(my_dictionary): 
+  l = []
+  for key in my_dictionary:
+    if my_dictionary[key] in list(my_dictionary.keys()):
+      l.append(my_dictionary[key]) 
+  return l
+# Uncomment these function calls to test your  function:
+print(values_that_are_keys({1:100, 2:1, 3:4, 4:10}))
+# should print [1, 4]
+print(values_that_are_keys({"a":"apple", "b":"a", "c":100}))
+# should print ["a"]
