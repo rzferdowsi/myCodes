@@ -11,7 +11,7 @@ print(df1.info)
 df2 = pd.DataFrame([
   [1, 'San Diego', 100],
   [2, 'Los Angeles', 120],
-  [3,	'San Francisco',	90], 
+  [3,	'San Francisco', 90], 
   [4,	'Sacramento',	115]
   # Fill in rows 3 and 4
 ],
@@ -20,3 +20,62 @@ df2 = pd.DataFrame([
   ])
 print(df2.Location)
 print(df2)
+
+#Loading and Saving CSVs
+import codecademylib3
+import pandas as pd
+df= pd.read_csv('sample.csv')
+print(df)
+
+#writing to a csv file
+df.to_csv('new-csv-file.csv')
+
+# Inspect a DataFrame
+
+import codecademylib3
+import pandas as pd
+#load the CSV below:
+df = pd.read_csv('imdb.csv')
+print(df.head())
+print("\n----------------------------\n")
+print(df.info())
+
+# Select Columns
+
+import codecademylib3
+import pandas as pd
+
+df = pd.DataFrame([
+  ['January', 100, 100, 23, 100],
+  ['February', 51, 45, 145, 45],
+  ['March', 81, 96, 65, 96],
+  ['April', 80, 80, 54, 180],
+  ['May', 51, 54, 54, 154],
+  ['June', 112, 109, 79, 129]],
+  columns=['month', 'clinic_east',
+           'clinic_north', 'clinic_south',
+           'clinic_west']
+)
+clinic_north = df.clinic_north 
+print(clinic_north,type(clinic_north ) )
+
+#  Selecting Multiple Columns
+
+import codecademylib3
+import pandas as pd
+
+df = pd.DataFrame([
+  ['January', 100, 100, 23, 100],
+  ['February', 51, 45, 145, 45],
+  ['March', 81, 96, 65, 96],
+  ['April', 80, 80, 54, 180],
+  ['May', 51, 54, 54, 154],
+  ['June', 112, 109, 79, 129]],
+  columns=['month', 'clinic_east',
+           'clinic_north', 'clinic_south',
+           'clinic_west']
+)
+clinic_north_south = df[['clinic_north','clinic_south']]
+
+print(clinic_north_south,"\n",type(clinic_north_south))
+
