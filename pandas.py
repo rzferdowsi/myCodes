@@ -114,3 +114,80 @@ df = pd.DataFrame([
 )
 april_may_june = df.iloc[3:6]
 print(april_may_june)
+
+# Select Rows with Logic
+#df[df.MyColumnName == desired_column_value]
+df = pd.DataFrame([
+  ['January', 100, 100, 23, 100],
+  ['February', 51, 45, 145, 45],
+  ['March', 81, 96, 65, 96],
+  ['April', 80, 80, 54, 180],
+  ['May', 51, 54, 54, 154],
+  ['June', 112, 109, 79, 129]],
+  columns=['month', 'clinic_east',
+           'clinic_north', 'clinic_south',
+           'clinic_west'])
+january = df[df.month == 'January']
+print(january)
+print(type(january))
+
+# df[(df.age < 30) | (df.name == 'Martha Jones')]
+df = pd.DataFrame([
+  ['January', 100, 100, 23, 100],
+  ['February', 51, 45, 145, 45],
+  ['March', 81, 96, 65, 96],
+  ['April', 80, 80, 54, 180],
+  ['May', 51, 54, 54, 154],
+  ['June', 112, 109, 79, 129]],
+  columns=['month', 'clinic_east',
+           'clinic_north', 'clinic_south',
+           'clinic_west'])
+march_april = df[(df.month == "March") | (df.month == 'April')]
+print(march_april)
+
+# df[df.name.isin(['Martha Jones','Rose Tyler','Amy Pond'])]
+
+f = pd.DataFrame([
+  ['January', 100, 100, 23, 100],
+  ['February', 51, 45, 145, 45],
+  ['March', 81, 96, 65, 96],
+  ['April', 80, 80, 54, 180],
+  ['May', 51, 54, 54, 154],
+  ['June', 112, 109, 79, 129]],
+  columns=['month', 'clinic_east',
+           'clinic_north', 'clinic_south',
+           'clinic_west'])
+january_february_march = df[df.month.isin(['January', 'February','March'])]
+print(january_february_march)
+
+# Setting indices
+df = pd.DataFrame([
+  ['January', 100, 100, 23, 100],
+  ['February', 51, 45, 145, 45],
+  ['March', 81, 96, 65, 96],
+  ['April', 80, 80, 54, 180],
+  ['May', 51, 54, 54, 154],
+  ['June', 112, 109, 79, 129]],
+  columns=['month', 'clinic_east',
+           'clinic_north', 'clinic_south',
+           'clinic_west']
+)
+
+df2 = df.loc[[1, 3, 5]]
+print(df2)
+df2.reset_index(inplace=True)
+
+print(df2)
+
+import pandas as pd
+orders = pd.read_csv('shoefly.csv')
+print(orders.head(10))
+print(orders.info())
+emails = orders.email
+print(emails)
+frances_palmer = orders[(orders.first_name == 'Frances') & (orders.last_name == 'Palmer')]
+print(frances_palmer)
+comfy_shoes = orders[orders.shoe_type.isin(['clogs','boots','ballet flats'])]
+print(comfy_shoes)
+
+
