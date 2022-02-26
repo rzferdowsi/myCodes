@@ -190,4 +190,88 @@ print(frances_palmer)
 comfy_shoes = orders[orders.shoe_type.isin(['clogs','boots','ballet flats'])]
 print(comfy_shoes)
 
+#Modifying data
+#df["new_col"]=[1,2,3] (a list) or df["new_col"]=0 (a constant value)
+df = pd.DataFrame([
+  [1, '3 inch screw', 0.5, 0.75],
+  [2, '2 inch nail', 0.10, 0.25],
+  [3, 'hammer', 3.00, 5.50],
+  [4, 'screwdriver', 2.50, 3.00]
+],
+  columns=['Product ID', 'Description', 'Cost to Manufacture', 'Price']
+)
 
+# Add columns here
+df['Sold in Bulk?'] = ['Yes','Yes', 'No','No']
+print(df)
+
+df = pd.DataFrame([
+  [1, '3 inch screw', 0.5, 0.75],
+  [2, '2 inch nail', 0.10, 0.25],
+  [3, 'hammer', 3.00, 5.50],
+  [4, 'screwdriver', 2.50, 3.00]
+],
+  columns=['Product ID', 'Description', 'Cost to Manufacture', 'Price']
+)
+
+# Add columns here
+df['Is taxed?'] = 'Yes'
+print(df)
+
+import codecademylib3
+import pandas as pd
+
+df = pd.DataFrame([
+  [1, '3 inch screw', 0.5, 0.75],
+  [2, '2 inch nail', 0.10, 0.25],
+  [3, 'hammer', 3.00, 5.50],
+  [4, 'screwdriver', 2.50, 3.00]
+],
+  columns=['Product ID', 'Description', 'Cost to Manufacture', 'Price']
+)
+
+# Add columns here
+df['Is taxed?'] = 'Yes'
+df['Margin'] = df.Price - df['Cost to Manufacture']
+print(df)
+
+df = pd.DataFrame([
+  ['JOHN SMITH', 'john.smith@gmail.com'],
+  ['Jane Doe', 'jdoe@yahoo.com'],
+  ['joe schmo', 'joeschmo@hotmail.com']
+],
+columns=['Name', 'Email'])
+
+# Add columns here
+df['Lowercase Name'] = df.Name.apply(str.lower)
+print(df)
+# one line functions
+mylambda = lambda k: k[0]+k[-1]
+print(mylambda('This is a string'))
+
+import codecademylib3
+mylambda = lambda age: "Welcome to BattleCity!" if age >= 13 else  "You must be over 13"
+print(mylambda(13))
+
+df = pd.read_csv('employees.csv')
+
+# Add columns here
+get_last_name = lambda x: x.split(' ')[-1]
+print(df)
+df['last_name'] = df.name.apply(get_last_name)
+print(df)
+
+df = pd.read_csv('employees.csv')
+print(df)
+total_earned = lambda row: ((row.hours_worked - 40)*1.5 + 40) * row.hourly_wage if row.hours_worked > 40 else (row.hours_worked * row.hourly_wage)
+# df['total_earned'] = df.apply(mylambda)
+
+df['total_earned'] = df.apply(total_earned, axis = 1)
+print(df)
+
+df = pd.read_csv('imdb.csv')
+# print(df.columns)
+# Rename columns here
+print(df)
+df.columns= ["ID","Title","Category","Year Released","Rating"]
+print(df)
