@@ -291,3 +291,26 @@ print(orders.head(5))
 orders['shoe_source'] = orders.shoe_material.apply(lambda x: 'animal' if x =='leather'else 'vegan')
 orders['salutation'] = orders.apply(lambda row: 'Dear Mr. ' + row['last_name'] if row['gender'] == 'male' else 'Dear Ms. ' + row['last_name'],axis=1)
 print(orders.head(5))
+
+"""Petal Power Inventory
+You’re the lead data analyst for a chain of gardening stores called Petal Power. Help them analyze their inventory!
+
+If you get stuck during this project or would like to see an experienced developer work through it, click “Get Unstuck“ to see a project walkthrough video."""
+
+import pandas as pd
+inventory = pd.read_csv('inventory.csv')
+staten_island =(inventory.head(10))
+print(staten_island)
+print(inventory.info())
+product_request = staten_island.product_description 
+print(product_request)
+seed_request = inventory[(inventory.location == 'Brooklyn') & (inventory.product_type == 'seeds')]
+print(seed_request)
+s_ch = lambda x: True if x > 0 else False
+inventory['in_stock'] = inventory.quantity.apply(s_ch)
+print(inventory.head())
+inventory['total_value'] = inventory.price * inventory.quantity 
+print(inventory.head())
+combine_lambda = lambda row: '{} - {}'.format(row.product_type,row.product_description)
+inventory['full_description'] = inventory.apply(combine_lambda,axis=1)
+print(inventory.head())
